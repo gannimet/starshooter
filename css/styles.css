@@ -4,3 +4,7 @@
   aspect-ratio: 800/500;
   border: 1px solid black;
 }
+
+#playerSprites {
+  display: none;
+}

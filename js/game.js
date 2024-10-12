@@ -1,3 +1,6 @@
+const playerWidth = 68;
+const playerHeight = 100;
+
 export class Game {
   constructor(width, height) {
     this.width = width;
@@ -6,10 +9,18 @@ export class Game {
 
   update() {}
 
-  draw(ctx) {
-    ctx.beginPath();
-    ctx.fillStyle = 'red';
-    ctx.rect(10, 20, 150, 300);
-    ctx.fill();
+  draw(ctx, playerSprites) {
+    const spriteIndex = 0;
+    ctx.drawImage(
+      playerSprites,
+      playerWidth * spriteIndex,
+      0,
+      playerWidth,
+      playerHeight,
+      300,
+      200,
+      playerWidth,
+      playerHeight
+    );
   }
 }
