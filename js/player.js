@@ -17,8 +17,8 @@ export class Player {
       0,
       this.playerWidth,
       this.playerHeight,
-      300,
-      200,
+      10,
+      (this.game.height - this.playerHeight) / 2,
       this.playerWidth,
       this.playerHeight
     );
