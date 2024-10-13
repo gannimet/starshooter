@@ -5,9 +5,17 @@ export class Player {
     this.playerSprites = document.getElementById("playerSprites");
     this.playerWidth = 68;
     this.playerHeight = 100;
+    this.playerX = 10;
+    this.playerY = (this.game.height - this.playerHeight) / 2;
   }
 
-  update() {}
+  update(inputKeys) {
+    if (inputKeys.has("ArrowUp")) {
+      this.playerY -= 2;
+    } else {
+      this.playerY++;
+    }
+  }
 
   draw(ctx) {
     const spriteIndex = 0;
@@ -17,8 +25,8 @@ export class Player {
       0,
       this.playerWidth,
       this.playerHeight,
-      10,
-      (this.game.height - this.playerHeight) / 2,
+      this.playerX,
+      this.playerY,
       this.playerWidth,
       this.playerHeight
     );

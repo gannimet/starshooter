@@ -10,9 +10,12 @@ export class Game {
     this.player = new Player(this);
   }
 
-  update() {}
+  update() {
+    this.player.update(this.inputHandler.keys);
+  }
 
   draw(ctx) {
+    ctx.clearRect(0, 0, this.width, this.height);
     this.player.draw(ctx);
   }
 }
