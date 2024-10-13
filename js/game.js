@@ -1,3 +1,4 @@
+import { InputHandler } from "./input.js";
 import { Player } from "./player.js";
 
 export class Game {
@@ -5,6 +6,7 @@ export class Game {
     this.width = width;
     this.height = height;
 
+    this.inputHandler = new InputHandler();
     this.player = new Player(this);
   }
 
