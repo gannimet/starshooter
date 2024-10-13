@@ -1,3 +1,5 @@
+const gameKeys = ["ArrowUp", " "];
+
 export class InputHandler {
   constructor() {
     this.keys = new Set();
@@ -7,19 +9,15 @@ export class InputHandler {
 
   init() {
     window.addEventListener("keydown", (event) => {
-      if (event.key === " " || event.key === "ArrowUp") {
+      if (gameKeys.includes(event.key)) {
         this.keys.add(event.key);
       }
-
-      console.log("keys:", this.keys);
     });
 
     window.addEventListener("keyup", (event) => {
-      if (event.key === " " || event.key === "ArrowUp") {
+      if (gameKeys.includes(event.key)) {
         this.keys.delete(event.key);
       }
-
-      console.log("keys:", this.keys);
     });
   }
 }
