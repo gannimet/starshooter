@@ -24,13 +24,24 @@ export class Player {
     this.playerY = (this.game.height - this.playerHeight) / 2;
     this.shootingState = ShootingStates.IDLE;
     this.shootingDirection = ShootingDirections.NONE;
+    this.shootingFps = 20;
+    this.lastUpdateTime = 0;
   }
 
   update(inputKeys) {
+    // Moving up and down
     if (inputKeys.has("ArrowUp")) {
       this.playerY -= 2;
     } else {
       this.playerY++;
+    }
+
+    // Shooting
+    const diffSinceLastUpdate =
+      (performance.now() - this.lastUpdateTime) / 1000;
+
+    if (diffSinceLastUpdate < 1 / this.shootingFps) {
+      return;
     }
 
     if (inputKeys.has(" ") && this.shootingState === ShootingStates.IDLE) {
@@ -51,6 +62,8 @@ export class Player {
     } else if (this.shootingState === ShootingStates.IDLE) {
       this.shootingDirection = ShootingDirections.NONE;
     }
+
+    this.lastUpdateTime = performance.now();
   }
 
   draw(ctx) {
