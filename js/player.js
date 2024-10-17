@@ -31,9 +31,12 @@ export class Player {
   update(inputKeys) {
     // Moving up and down
     if (inputKeys.has("ArrowUp")) {
-      this.playerY -= 2;
+      this.playerY = Math.max(this.playerY - 2, 0);
     } else {
-      this.playerY++;
+      this.playerY = Math.min(
+        this.playerY + 1,
+        this.game.height - this.playerHeight
+      );
     }
 
     // Shooting
