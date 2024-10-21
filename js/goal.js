@@ -16,7 +16,7 @@ export class Goal {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fillRect(this.goalX, this.goalY, this.goalWidth, this.goalHeight);
   }
 

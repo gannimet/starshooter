@@ -1,3 +1,4 @@
+import { Background } from "./background.js";
 import { Goal } from "./goal.js";
 import { HUD } from "./hud.js";
 import { InputHandler } from "./input.js";
@@ -10,6 +11,7 @@ export class Game {
     this.height = height;
 
     this.inputHandler = new InputHandler();
+    this.background = new Background(this);
     this.player = new Player(this);
     this.starballs = [];
     this.starballsPerSecond = 0.5;
@@ -35,6 +37,7 @@ export class Game {
       this.lastStarballCreatedAt = performance.now();
     }
 
+    this.background.update();
     this.player.update(this.inputHandler.keys);
     this.starballs.forEach((starball) => {
       starball.update();
@@ -53,6 +56,7 @@ export class Game {
 
   draw(ctx) {
     ctx.clearRect(0, 0, this.width, this.height);
+    this.background.draw(ctx);
     this.player.draw(ctx);
     this.starballs.forEach((starball) => {
       starball.draw(ctx);
