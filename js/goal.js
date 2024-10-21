@@ -5,10 +5,15 @@ export class Goal {
     this.goalWidth = 20;
     this.goalHeight = 200;
     this.goalX = this.game.width - this.goalWidth;
-    this.goalY = (this.game.height - this.goalHeight) / 2;
+    this.goalY = 0;
+    this.angle = 0;
   }
 
-  update() {}
+  update() {
+    this.angle += 0.03;
+    this.goalY =
+      ((Math.sin(this.angle) + 1) * (this.game.height - this.goalHeight)) / 2;
+  }
 
   draw(ctx) {
     ctx.fillStyle = "black";
