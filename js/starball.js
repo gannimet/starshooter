@@ -2,7 +2,7 @@ export class Starball {
   constructor(game) {
     this.game = game;
 
-    this.size = 5;
+    this.size = 15;
     this.x = (this.game.width * 2) / 3;
     this.y = -this.size / 2;
     this.xSpeed = -4;
@@ -10,6 +10,7 @@ export class Starball {
     this.lastUpdateTime = 0;
     this.markedForDeletion = false;
     this.hasEntered = false;
+    this.hasBeenShotByPlayer = false;
   }
 
   update() {
