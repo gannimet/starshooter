@@ -15,6 +15,13 @@ export class Game {
   }
 
   update() {
+    // Clean up starballs that are out of bounds
+    this.starballs.forEach((starball, index) => {
+      if (starball.markedForDeletion) {
+        this.starballs.splice(index, 1);
+      }
+    });
+
     const timeSinceLastStarballCreated =
       (performance.now() - this.lastStarballCreatedAt) / 1000;
 
