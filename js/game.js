@@ -1,3 +1,4 @@
+import { Goal } from "./goal.js";
 import { InputHandler } from "./input.js";
 import { Player, ShootingStates } from "./player.js";
 import { Starball } from "./starball.js";
@@ -12,6 +13,7 @@ export class Game {
     this.starballs = [];
     this.starballsPerSecond = 0.5;
     this.lastStarballCreatedAt = 0;
+    this.goal = new Goal(this);
   }
 
   update() {
@@ -38,6 +40,7 @@ export class Game {
         this.player.checkCollision(starball);
       }
     });
+    this.goal.update();
   }
 
   draw(ctx) {
@@ -46,5 +49,6 @@ export class Game {
     this.starballs.forEach((starball) => {
       starball.draw(ctx);
     });
+    this.goal.draw(ctx);
   }
 }
