@@ -19,6 +19,7 @@ export class Game {
     this.goal = new Goal(this);
     this.score = 0;
     this.hud = new HUD(this);
+    this.particles = [];
   }
 
   update() {
@@ -52,6 +53,9 @@ export class Game {
     });
     this.goal.update();
     this.hud.update();
+    this.particles.forEach((particle) => {
+      particle.update();
+    });
   }
 
   draw(ctx) {
@@ -63,6 +67,9 @@ export class Game {
     });
     this.goal.draw(ctx);
     this.hud.draw(ctx);
+    this.particles.forEach((particle) => {
+      particle.draw(ctx);
+    });
   }
 
   scoreGoal(starball) {

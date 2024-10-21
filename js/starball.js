@@ -1,3 +1,5 @@
+import { Particle } from "./particle.js";
+
 export class Starball {
   constructor(game) {
     this.game = game;
@@ -8,11 +10,12 @@ export class Starball {
     this.xSpeed = -4;
     this.ySpeed = 0;
     this.color = `rgb(255, ${255 - this.size * 3}, 0)`;
-    this.lastUpdateTime = 0;
     this.markedForDeletion = false;
     this.markedAsScored = false;
     this.hasEntered = false;
     this.hasBeenShotByPlayer = false;
+    this.particlesPerSecond = 10;
+    this.lastParticleCreatedAt = 0;
   }
 
   update() {
@@ -36,10 +39,17 @@ export class Starball {
       this.ySpeed += this.size / 400;
     }
 
-    this.lastUpdateTime = performance.now();
-
     if (this.y > this.size) {
       this.hasEntered = true;
+    }
+
+    // Create some particles
+    const timeSinceLastParticleCreated =
+      (performance.now() - this.lastParticleCreatedAt) / 1000;
+
+    if (timeSinceLastParticleCreated >= 1 / this.particlesPerSecond) {
+      this.game.particles.push(new Particle(this));
+      this.lastParticleCreatedAt = performance.now();
     }
   }
 
