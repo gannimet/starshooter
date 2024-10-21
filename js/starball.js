@@ -2,11 +2,12 @@ export class Starball {
   constructor(game) {
     this.game = game;
 
-    this.size = 15;
-    this.x = (this.game.width * 2) / 3;
+    this.size = Math.random() * 10 + 10;
+    this.x = (this.game.width * 2) / 3 + (Math.random() * 100 - 50);
     this.y = -this.size / 2;
     this.xSpeed = -4;
     this.ySpeed = 0;
+    this.color = `rgb(255, ${255 - this.size * 3}, 0)`;
     this.lastUpdateTime = 0;
     this.markedForDeletion = false;
     this.hasEntered = false;
@@ -31,7 +32,7 @@ export class Starball {
       this.xSpeed = (this.size * 3) / 4;
       this.ySpeed += this.size / 100;
     } else {
-      this.ySpeed += this.size / 350;
+      this.ySpeed += this.size / 400;
     }
 
     this.lastUpdateTime = performance.now();
@@ -42,7 +43,7 @@ export class Starball {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size / 2, 0, 2 * Math.PI);
     ctx.fill();
