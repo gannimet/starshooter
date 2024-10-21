@@ -14,6 +14,7 @@ export class Game {
     this.starballsPerSecond = 0.5;
     this.lastStarballCreatedAt = 0;
     this.goal = new Goal(this);
+    this.score = 0;
   }
 
   update() {
@@ -54,5 +55,14 @@ export class Game {
       starball.draw(ctx);
     });
     this.goal.draw(ctx);
+  }
+
+  scoreGoal(starball) {
+    if (!starball.markedAsScored) {
+      this.score++;
+      console.log("new score:", this.score);
+    }
+
+    starball.markedAsScored = true;
   }
 }

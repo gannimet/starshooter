@@ -10,6 +10,7 @@ export class Starball {
     this.color = `rgb(255, ${255 - this.size * 3}, 0)`;
     this.lastUpdateTime = 0;
     this.markedForDeletion = false;
+    this.markedAsScored = false;
     this.hasEntered = false;
     this.hasBeenShotByPlayer = false;
   }

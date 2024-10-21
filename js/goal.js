@@ -26,7 +26,7 @@ export class Goal {
       starball.y >= this.goalY &&
       starball.y <= this.goalY + this.goalHeight
     ) {
-      console.log("goal!");
+      this.game.scoreGoal(starball);
     }
   }
 }
