@@ -39,6 +39,10 @@ export class Game {
       if (this.player.shootingState >= ShootingStates.INTERMEDIATE_3) {
         this.player.checkCollision(starball);
       }
+
+      if (starball.hasBeenShotByPlayer) {
+        this.goal.checkCollision(starball);
+      }
     });
     this.goal.update();
   }
