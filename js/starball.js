@@ -14,7 +14,7 @@ export class Starball {
     this.markedAsScored = false;
     this.hasEntered = false;
     this.hasBeenShotByPlayer = false;
-    this.particlesPerSecond = 10;
+    this.particlesPerSecond = 20;
     this.lastParticleCreatedAt = 0;
   }
 

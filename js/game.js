@@ -30,6 +30,13 @@ export class Game {
       }
     });
 
+    // Clean up particles that have become invisible
+    this.particles.forEach((particle, index) => {
+      if (particle.markedForDeletion) {
+        this.particles.splice(index, 1);
+      }
+    });
+
     const timeSinceLastStarballCreated =
       (performance.now() - this.lastStarballCreatedAt) / 1000;
 
