@@ -94,8 +94,7 @@ export class Player {
       starball.y >= this.playerY + (2 / 3) * this.playerHeight &&
       starball.y <= this.playerY + this.playerHeight
     ) {
-      console.log("collision!");
-      starball.hasBeenShotByPlayer = true;
+      starball.markAsShot();
     }
   }
 }
