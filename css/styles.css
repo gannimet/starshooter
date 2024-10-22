@@ -5,6 +5,6 @@
   border: 1px solid black;
 }
 
-#playerSprites, #backgroundSky {
+#playerSprites, #backgroundSky, #goalAlert {
   display: none;
 }
