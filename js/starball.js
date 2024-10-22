@@ -12,7 +12,6 @@ export class Starball {
     this.color = `rgb(255, ${255 - this.size * 3}, 0)`;
     this.markedForDeletion = false;
     this.markedAsScored = false;
-    this.hasEntered = false;
     this.hasBeenShotByPlayer = false;
     this.particlesPerSecond = 20;
     this.lastParticleCreatedAt = 0;
@@ -20,11 +19,9 @@ export class Starball {
 
   update() {
     if (
-      this.hasEntered &&
-      (this.x < -this.size / 2 ||
-        this.x > this.game.width + this.size / 2 ||
-        this.y < -this.size / 2 ||
-        this.y > this.game.height + this.size / 2)
+      this.x < -this.size / 2 ||
+      this.x > this.game.width + this.size / 2 ||
+      this.y > this.game.height + this.size / 2
     ) {
       this.markedForDeletion = true;
     }
@@ -37,10 +34,6 @@ export class Starball {
       this.ySpeed += this.size / 100;
     } else {
       this.ySpeed += this.size / 400;
-    }
-
-    if (this.y > this.size) {
-      this.hasEntered = true;
     }
 
     // Create some particles
