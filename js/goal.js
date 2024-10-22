@@ -7,16 +7,18 @@ export class Goal {
     this.goalX = this.game.width - this.goalWidth;
     this.goalY = 0;
     this.angle = 0;
+    this.hue = 0;
   }
 
   update() {
     this.angle += 0.03;
     this.goalY =
       ((Math.sin(this.angle) + 1) * (this.game.height - this.goalHeight)) / 2;
+    this.hue = (this.hue + 1) % 360;
   }
 
   draw(ctx) {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = `hsl(${this.hue}, 100%, 65%)`;
     ctx.fillRect(this.goalX, this.goalY, this.goalWidth, this.goalHeight);
   }
 
