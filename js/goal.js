@@ -1,3 +1,5 @@
+import { GoalParticle } from "./goal-particle.js";
+
 export class Goal {
   constructor(game) {
     this.game = game;
@@ -8,6 +10,7 @@ export class Goal {
     this.goalY = 0;
     this.angle = 0;
     this.hue = 0;
+    this.lightness = 65;
   }
 
   update() {
@@ -18,7 +21,7 @@ export class Goal {
   }
 
   draw(ctx) {
-    ctx.fillStyle = `hsl(${this.hue}, 100%, 65%)`;
+    ctx.fillStyle = `hsl(${this.hue}, 100%, ${this.lightness}%)`;
     ctx.fillRect(this.goalX, this.goalY, this.goalWidth, this.goalHeight);
   }
 
@@ -29,6 +32,13 @@ export class Goal {
       starball.y <= this.goalY + this.goalHeight
     ) {
       this.game.scoreGoal(starball);
+      this.createParticles();
+    }
+  }
+
+  createParticles() {
+    for (let i = 0; i < 5; i++) {
+      this.game.particles.push(new GoalParticle(this));
     }
   }
 }
