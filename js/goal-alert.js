@@ -3,6 +3,7 @@ export class GoalAlert {
     this.game = game;
 
     this.alertImage = document.getElementById("goalAlert");
+    this.markedForDeletion = false;
   }
 
   update() {}

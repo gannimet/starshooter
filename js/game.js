@@ -21,7 +21,7 @@ export class Game {
     this.score = 0;
     this.hud = new HUD(this);
     this.particles = [];
-    this.goalAlert = new GoalAlert(this);
+    this.goalAlerts = [];
   }
 
   update() {
@@ -36,6 +36,13 @@ export class Game {
     this.particles.forEach((particle, index) => {
       if (particle.markedForDeletion) {
         this.particles.splice(index, 1);
+      }
+    });
+
+    // Clean up goal alerts that have finished playing
+    this.goalAlerts.forEach((goalAlert, index) => {
+      if (goalAlert.markedForDeletion) {
+        this.goalAlerts.splice(index, 1);
       }
     });
 
@@ -65,13 +72,17 @@ export class Game {
     this.particles.forEach((particle) => {
       particle.update();
     });
-    this.goalAlert.update();
+    this.goalAlerts.forEach((goalAlert) => {
+      goalAlert.update();
+    });
   }
 
   draw(ctx) {
     ctx.clearRect(0, 0, this.width, this.height);
     this.background.draw(ctx);
-    this.goalAlert.draw(ctx);
+    this.goalAlerts.forEach((goalAlert) => {
+      goalAlert.draw(ctx);
+    });
     this.player.draw(ctx);
     this.starballs.forEach((starball) => {
       starball.draw(ctx);
