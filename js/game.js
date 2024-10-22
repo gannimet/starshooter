@@ -97,6 +97,7 @@ export class Game {
   scoreGoal(starball) {
     if (!starball.markedAsScored) {
       this.score++;
+      this.goalAlerts.push(new GoalAlert(this));
     }
 
     starball.markedAsScored = true;
