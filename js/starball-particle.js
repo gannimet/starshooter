@@ -1,4 +1,4 @@
-export class Particle {
+export class StarballParticle {
   constructor(starball) {
     this.starball = starball;
 

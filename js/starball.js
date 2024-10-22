@@ -1,4 +1,4 @@
-import { Particle } from "./particle.js";
+import { StarballParticle } from "./starball-particle.js";
 
 export class Starball {
   constructor(game) {
@@ -41,7 +41,7 @@ export class Starball {
       (performance.now() - this.lastParticleCreatedAt) / 1000;
 
     if (timeSinceLastParticleCreated >= 1 / this.particlesPerSecond) {
-      this.game.particles.push(new Particle(this));
+      this.game.particles.push(new StarballParticle(this));
       this.lastParticleCreatedAt = performance.now();
     }
   }
