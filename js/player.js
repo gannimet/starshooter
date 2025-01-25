@@ -5,6 +5,8 @@ export class Player {
     this.playerSprites = document.getElementById("playerSprites");
     this.playerWidth = 68;
     this.playerHeight = 100;
+    this.playerX = 10;
+    this.playerY = (this.game.height - this.playerHeight) / 2;
   }
 
   draw(ctx) {
@@ -16,8 +18,8 @@ export class Player {
       0,
       this.playerWidth,
       this.playerHeight,
-      300,
-      200,
+      this.playerX,
+      this.playerY,
       this.playerWidth,
       this.playerHeight
     );
