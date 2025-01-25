@@ -9,6 +9,17 @@ export class Player {
     this.playerY = (this.game.height - this.playerHeight) / 2;
   }
 
+  update(inputKeys) {
+    if (inputKeys.has("ArrowUp")) {
+      this.playerY = Math.max(this.playerY - 3, 0);
+    } else {
+      this.playerY = Math.min(
+        this.playerY + 1,
+        this.game.height - this.playerHeight
+      );
+    }
+  }
+
   draw(ctx) {
     const spriteIndex = 0;
 

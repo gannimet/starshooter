@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
   const game = new Game(canvas.width, canvas.height);
 
   function animate() {
+    game.update();
     game.draw(ctx);
 
     requestAnimationFrame(animate);
