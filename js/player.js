@@ -24,6 +24,8 @@ export class Player {
     this.playerY = (this.game.height - this.playerHeight) / 2;
     this.shootingState = ShootingStates.IDLE;
     this.shootingDirection = ShootingDirections.NONE;
+    this.shootingFps = 20;
+    this.lastUpdateTime = 0;
   }
 
   update(inputKeys) {
@@ -35,6 +37,14 @@ export class Player {
         this.playerY + 1,
         this.game.height - this.playerHeight
       );
+    }
+
+    // Shooting throttling
+    const diffSinceLastUpdate =
+      (performance.now() - this.lastUpdateTime) / 1000;
+
+    if (diffSinceLastUpdate < 1 / this.shootingFps) {
+      return;
     }
 
     // Shooting animation
@@ -56,6 +66,8 @@ export class Player {
     } else if (this.shootingState === ShootingStates.IDLE) {
       this.shootingDirection = ShootingDirections.NONE;
     }
+
+    this.lastUpdateTime = performance.now();
   }
 
   draw(ctx) {
