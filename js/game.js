@@ -14,6 +14,7 @@ export class Game {
     this.starballsPerSecond = 0.5;
     this.lastStarballCreatedAt = 0;
     this.goal = new Goal(this);
+    this.score = 0;
   }
 
   update() {
@@ -37,6 +38,10 @@ export class Game {
       if (this.player.shootingState >= ShootingStates.INTERMEDIATE_3) {
         this.player.checkCollision(starball);
       }
+
+      if (starball.hasBeenShotByPlayer) {
+        this.goal.checkCollision(starball);
+      }
     });
     this.goal.update();
   }
@@ -48,5 +53,12 @@ export class Game {
       starball.draw(ctx);
     });
     this.goal.draw(ctx);
+  }
+
+  scoreGoal(starball) {
+    if (!starball.markedAsScored) {
+      this.score++;
+      starball.markedAsScored = true;
+    }
   }
 }

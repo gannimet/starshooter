@@ -19,4 +19,14 @@ export class Goal {
     ctx.fillStyle = "black";
     ctx.fillRect(this.goalX, this.goalY, this.goalWidth, this.goalHeight);
   }
+
+  checkCollision(starball) {
+    if (
+      starball.x >= this.goalX &&
+      starball.y >= this.goalY &&
+      starball.y <= this.goalY + this.goalHeight
+    ) {
+      this.game.scoreGoal(starball);
+    }
+  }
 }
