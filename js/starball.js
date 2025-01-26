@@ -10,6 +10,7 @@ export class Starball {
     this.ySpeed = 0;
     this.markedForDeletion = false;
     this.hasBeenShotByPlayer = false;
+    this.markedAsScored = false;
   }
 
   update() {
