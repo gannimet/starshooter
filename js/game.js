@@ -15,6 +15,12 @@ export class Game {
   }
 
   update() {
+    // Clean up starballs that are out of bounds
+    this.starballs = this.starballs.filter((starball) => {
+      return !starball.markedForDeletion;
+    });
+    console.log(this.starballs);
+
     const secondsSinceLastStarballCreated =
       (performance.now() - this.lastStarballCreatedAt) / 1000;
 
