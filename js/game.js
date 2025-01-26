@@ -1,4 +1,5 @@
 import { Goal } from "./goal.js";
+import { HUD } from "./hud.js";
 import { InputHandler } from "./input.js";
 import { Player, ShootingStates } from "./player.js";
 import { Starball } from "./starball.js";
@@ -15,6 +16,7 @@ export class Game {
     this.lastStarballCreatedAt = 0;
     this.goal = new Goal(this);
     this.score = 0;
+    this.hud = new HUD(this);
   }
 
   update() {
@@ -44,6 +46,7 @@ export class Game {
       }
     });
     this.goal.update();
+    this.hud.update();
   }
 
   draw(ctx) {
@@ -53,6 +56,7 @@ export class Game {
       starball.draw(ctx);
     });
     this.goal.draw(ctx);
+    this.hud.draw(ctx);
   }
 
   scoreGoal(starball) {
