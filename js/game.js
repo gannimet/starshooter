@@ -19,12 +19,18 @@ export class Game {
     this.score = 0;
     this.hud = new HUD(this);
     this.background = new Background(this);
+    this.particles = [];
   }
 
   update() {
     // Clean up starballs that are out of bounds
     this.starballs = this.starballs.filter((starball) => {
       return !starball.markedForDeletion;
+    });
+
+    // Clean up particles that have become invisible
+    this.particles = this.particles.filter((particle) => {
+      return !particle.markedForDeletion;
     });
 
     const secondsSinceLastStarballCreated =
@@ -50,6 +56,9 @@ export class Game {
     });
     this.goal.update();
     this.hud.update();
+    this.particles.forEach((particle) => {
+      particle.update();
+    });
   }
 
   draw(ctx) {
@@ -61,6 +70,9 @@ export class Game {
     });
     this.goal.draw(ctx);
     this.hud.draw(ctx);
+    this.particles.forEach((particle) => {
+      particle.draw(ctx);
+    });
   }
 
   scoreGoal(starball) {
