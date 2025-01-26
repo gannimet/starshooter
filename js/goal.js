@@ -16,7 +16,7 @@ export class Goal {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = `hsl(${this.angle * 30}, 100%, 50%)`;
     ctx.fillRect(this.goalX, this.goalY, this.goalWidth, this.goalHeight);
   }
 
