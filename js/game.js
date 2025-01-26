@@ -1,5 +1,5 @@
 import { InputHandler } from "./input.js";
-import { Player } from "./player.js";
+import { Player, ShootingStates } from "./player.js";
 import { Starball } from "./starball.js";
 
 export class Game {
@@ -31,6 +31,10 @@ export class Game {
     this.player.update(this.inputHandler.keys);
     this.starballs.forEach((starball) => {
       starball.update();
+
+      if (this.player.shootingState >= ShootingStates.INTERMEDIATE_3) {
+        this.player.checkCollision(starball);
+      }
     });
   }
 

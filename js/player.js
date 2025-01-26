@@ -1,4 +1,4 @@
-const ShootingStates = {
+export const ShootingStates = {
   IDLE: 0,
   INTERMEDIATE_1: 1,
   INTERMEDIATE_2: 2,
@@ -86,5 +86,16 @@ export class Player {
       this.playerWidth,
       this.playerHeight
     );
+  }
+
+  checkCollision(starball) {
+    if (
+      starball.x >= this.playerX + this.playerWidth / 2 &&
+      starball.x <= this.playerX + this.playerWidth &&
+      starball.y >= this.playerY + (2 / 3) * this.playerHeight &&
+      starball.y <= this.playerY + this.playerHeight
+    ) {
+      starball.markAsShot();
+    }
   }
 }
