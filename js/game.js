@@ -19,7 +19,6 @@ export class Game {
     this.starballs = this.starballs.filter((starball) => {
       return !starball.markedForDeletion;
     });
-    console.log(this.starballs);
 
     const secondsSinceLastStarballCreated =
       (performance.now() - this.lastStarballCreatedAt) / 1000;
