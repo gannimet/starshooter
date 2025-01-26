@@ -9,6 +9,7 @@ export class Starball {
     this.xSpeed = -1;
     this.ySpeed = 0;
     this.markedForDeletion = false;
+    this.hasBeenShotByPlayer = false;
   }
 
   update() {
@@ -23,7 +24,12 @@ export class Starball {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
     this.xSpeed -= 0.05;
-    this.ySpeed += this.size / 350;
+
+    if (this.hasBeenShotByPlayer) {
+      this.ySpeed += this.size / 70;
+    } else {
+      this.ySpeed += this.size / 350;
+    }
   }
 
   draw(ctx) {
@@ -31,5 +37,11 @@ export class Starball {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size / 2, 0, 2 * Math.PI);
     ctx.fill();
+  }
+
+  markAsShot() {
+    this.hasBeenShotByPlayer = true;
+    this.xSpeed = this.size;
+    this.ySpeed = -this.size / 2;
   }
 }
