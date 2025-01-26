@@ -5,6 +5,6 @@
   max-height: 100%;
 }
 
-#playerSprites {
+#playerSprites, #backgroundSky {
   display: none;
 }
