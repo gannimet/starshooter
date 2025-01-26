@@ -1,4 +1,5 @@
 import { Background } from "./background.js";
+import { GoalAlert } from "./goal-alert.js";
 import { Goal } from "./goal.js";
 import { HUD } from "./hud.js";
 import { InputHandler } from "./input.js";
@@ -20,6 +21,7 @@ export class Game {
     this.hud = new HUD(this);
     this.background = new Background(this);
     this.particles = [];
+    this.goalAlerts = [];
   }
 
   update() {
@@ -31,6 +33,11 @@ export class Game {
     // Clean up particles that have become invisible
     this.particles = this.particles.filter((particle) => {
       return !particle.markedForDeletion;
+    });
+
+    // Clean up goal alerts that have finished playing
+    this.goalAlerts = this.goalAlerts.filter((goalAlert) => {
+      return !goalAlert.markedForDeletion;
     });
 
     const secondsSinceLastStarballCreated =
@@ -59,11 +66,17 @@ export class Game {
     this.particles.forEach((particle) => {
       particle.update();
     });
+    this.goalAlerts.forEach((goalAlert) => {
+      goalAlert.update();
+    });
   }
 
   draw(ctx) {
     ctx.clearRect(0, 0, this.width, this.height);
     this.background.draw(ctx);
+    this.goalAlerts.forEach((goalAlert) => {
+      goalAlert.draw(ctx);
+    });
     this.player.draw(ctx);
     this.starballs.forEach((starball) => {
       starball.draw(ctx);
@@ -78,6 +91,7 @@ export class Game {
   scoreGoal(starball) {
     if (!starball.markedAsScored) {
       this.score++;
+      this.goalAlerts.push(new GoalAlert(this));
       starball.markedAsScored = true;
     }
   }
