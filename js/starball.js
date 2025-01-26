@@ -3,7 +3,7 @@ export class Starball {
     this.game = game;
 
     this.size = Math.random() * 10 + 10;
-    this.x = (this.game.width * 2) / 3;
+    this.x = (this.game.width * 2) / 3 + Math.random() * 100 - 50;
     this.y = -this.size / 2;
     this.color = `rgb(255, ${255 - this.size * 3}, 0)`;
     this.xSpeed = -1;
