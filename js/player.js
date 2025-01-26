@@ -26,17 +26,21 @@ export class Player {
     this.shootingDirection = ShootingDirections.NONE;
     this.shootingFps = 20;
     this.lastUpdateTime = 0;
+    this.fallAcceleration = 0;
   }
 
   update(inputKeys) {
     // Moving up and down
     if (inputKeys.has("ArrowUp")) {
       this.playerY = Math.max(this.playerY - 3, 0);
+      this.fallAcceleration = 0;
     } else {
       this.playerY = Math.min(
-        this.playerY + 1,
+        this.playerY + this.fallAcceleration,
         this.game.height - this.playerHeight
       );
+
+      this.fallAcceleration += 0.1;
     }
 
     // Shooting throttling
