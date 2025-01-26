@@ -8,9 +8,18 @@ export class Starball {
     this.color = `rgb(255, ${255 - this.size * 3}, 0)`;
     this.xSpeed = -1;
     this.ySpeed = 0;
+    this.markedForDeletion = false;
   }
 
   update() {
+    if (
+      this.x < -this.size / 2 ||
+      this.x > this.game.width + this.size / 2 ||
+      this.y > this.game.height + this.size / 2
+    ) {
+      this.markedForDeletion = true;
+    }
+
     this.x += this.xSpeed;
     this.y += this.ySpeed;
     this.xSpeed -= 0.05;
