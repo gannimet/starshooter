@@ -1,6 +1,6 @@
 # Starshooter
 
-<img width="821" alt="starshooter-screenshot" src="https://github.com/user-attachments/assets/3d971aa9-5b30-4800-b2b3-02472637d406">
+<img width="821" alt="starshooter-screenshot" src="https://github.com/user-attachments/assets/44ae9af4-ff6c-42fc-8c92-47cc9ba7eb7b">
 
 ## Was ist das hier?
 
