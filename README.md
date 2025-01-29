@@ -12,7 +12,10 @@ Jeder ist herzlich eingeladen, den Code in diesem Repository auszuchecken und ih
 
 ## Wo und wann kann ich den Kurs besuchen?
 
-Demnächst an den Volkshochschulen Pankow und Mitte (Details folgen).
+An folgenden Terminen wird der Kurs 2025 angeboten:
+
+* VHS Mitte: Über zwei Wochenenden verteilt am 31.01./01.02. und 07.02./08.02. (https://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseDetail.aspx?id=742364)
+* VHS Pankow: Am Wochenende vom 21.03. - 23.03. (https://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseDetail.aspx?id=740587)
 
 ## Wie bekomme ich das Spiel zum Laufen?
 
