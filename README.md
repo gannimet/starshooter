@@ -10,6 +10,10 @@ Der im Rahmen des jeweiligen Kurses entwickelte Code kann unter Umständen leich
 
 Jeder ist herzlich eingeladen, den Code in diesem Repository auszuchecken und ihn nach seinen Wünschen und Vorstellungen abzuwandeln oder zu erweitern oder ihn einfach als Basis für ganz eigene Ideen zu benutzen.
 
+## Live-Demo
+
+https://starshooter-771l.onrender.com/
+
 ## Wo und wann kann ich den Kurs besuchen?
 
 An folgenden Terminen wird der Kurs 2025 angeboten:
