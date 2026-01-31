@@ -1,10 +1,6 @@
 # Starshooter
 
-<img width="821" alt="starshooter-screenshot" src="https://github.com/user-attachments/assets/44ae9af4-ff6c-42fc-8c92-47cc9ba7eb7b">
-
-## Was ist das hier?
-
-Starshooter ist ein Browser-Spiel, das ich im Rahmen des VHS-Kurses „Spieleentwicklung mit HTML-Canvas und Javascript” mit den Kursteilnehmern zusammen entwickle. In diesem Repository stelle ich den Source-Code für die Teilnehmer, aber auch für jeden anderen Interessierten, kostenlos zur Verfügung.
+Starshooter ist ein Browser-Spiel, das ich im Rahmen des VHS-Kurses „Kreativ programmieren: Eigene Spiele mit JavaScript entwickeln” mit den Kursteilnehmern zusammen entwickle. In diesem Repository stelle ich den Source-Code für die Teilnehmer, aber auch für jeden anderen Interessierten, kostenlos zur Verfügung.
 
 Der im Rahmen des jeweiligen Kurses entwickelte Code kann unter Umständen leicht abweichen, je nachdem, welche eigenen Ideen und Wünsche die Teilnehmer möglicherweise eingebracht haben. Die in den Kursen behandelten Ideen und Prinzipien der Spieleentwicklung lassen sich aber in jedem Falle an dem Code in diesem Repository nachvollziehen.
 
@@ -16,10 +12,7 @@ https://starshooter-771l.onrender.com/
 
 ## Wo und wann kann ich den Kurs besuchen?
 
-An folgenden Terminen wird der Kurs 2025 angeboten:
-
-* VHS Mitte: Über zwei Wochenenden verteilt am 31.01./01.02. und 07.02./08.02. (https://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseDetail.aspx?id=742364)
-* VHS Pankow: Am Wochenende vom 21.03. - 23.03. (https://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseDetail.aspx?id=740587)
+Grundsätzlich gibt es den Kurs je einmal pro Semester als Wochenendkurs an den Volkshochschulen Berlin Mitte und Pankow. Um die genauen Termine zu erfahren und den Kurs zu buchen, geht ihr einfach auf die [Kurssuche der Berliner Volkshochschule](https://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx) und sucht dort nach dem Namen des Kurses „Kreativ programmieren: Eigene Spiele mit JavaScript entwickeln”.
 
 ## Wie bekomme ich das Spiel zum Laufen?
 
